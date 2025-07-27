@@ -13,8 +13,8 @@ const app = express();
 
 app.use(express.json()); // чтобы парсить JSON в теле запросов
 
-app.get('/ping', (req, res) => {
-  res.send('pong');
+app.get('/api/ping', (req, res) => {
+  res.json({ message: 'pong' });
 });
 
 app.use('/api', feedbackRouter);
