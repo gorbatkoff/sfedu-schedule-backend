@@ -1,15 +1,15 @@
-const express = require('express');
+// index.js
+import express from 'express';
+import feedbackRouter from './feedback.js';
+
 const app = express();
-const PORT = 3000;
 
-// Middleware для парсинга JSON
-app.use(express.json());
+app.use(express.json()); // чтобы парсить JSON в теле запросов
 
-// Простейшая ручка
-app.get('/api/ping', (req, res) => {
-  res.json({ message: 'pong' });
-});
+app.use('/api', feedbackRouter);
 
+
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
-  console.log(`🚀 Сервер запущен на http://localhost:${PORT}`);
+  console.log(`Server started on port ${PORT}`);
 });
