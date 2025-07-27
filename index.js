@@ -13,6 +13,10 @@ const app = express();
 
 app.use(express.json()); // чтобы парсить JSON в теле запросов
 
+app.get('/ping', (req, res) => {
+  res.send('pong');
+});
+
 app.use('/api', feedbackRouter);
 app.use('/uploads', express.static(path.resolve(__dirname, 'uploads')));
 
