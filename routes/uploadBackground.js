@@ -32,7 +32,7 @@ const upload = multer({
 });
 
 export default function uploadBackgroundRoute(app) {
-  app.post('/upload-background', (req, res) => {
+  app.post('/api/upload-background', (req, res) => {
     upload.single('background')(req, res, (err) => {
       if (err instanceof multer.MulterError) {
         // Ошибка multer (например, лимит размера)
